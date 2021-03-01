@@ -141,6 +141,7 @@ time
     border-radius: 0.25rem;
     font-weight: bold;
     font-size: 1.3rem;
+    cursor: pointer;
 }
 
 /*==============================================
@@ -300,14 +301,14 @@ footer small {
         font-size: 15px;
     }
     main .timer {
-        min-width: 300px;
+        min-width: 310px;
     }
     .time {
-        font-size: 5rem;
+        font-size: 3rem;
         width: auto;
     }
     .button-start {
-        width: 96px;
+        width: 50vw;
         font-size: 1rem;
     }
 }
