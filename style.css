@@ -69,14 +69,14 @@ img {
 main
 ================================================*/
 main {
-    display: flex;
+    display: block;
     text-align: center;
-    justify-content: center;
     margin: 25px 0 0 0;
 }
 
 .container-timer {
     display: flex;
+    justify-content: center;
 }
 
 main .timer {
@@ -261,11 +261,40 @@ input {
     border: none;
 }
 
-/*footer=========================================*/
+/*===========================
+ info
+==========================*/
+.text-info{
+    display: block;
+    text-align: left;
+    margin: 300px 30px 10px 30px;
+}
+
+.text-info h1{
+    font-size: 2rem;
+    border-bottom: 2px solid white;
+    /*border-bottom-right-radius: 25rem;*/
+}
+
+.text-info h2 {
+    font-size: 1.7rem;
+}
+
+.text-info p {
+    font-size: 1rem;
+}
+.text-info p a{
+    font-weight: bold;
+    text-decoration: none;
+    color: rgba(0, 0, 0, 0.6);
+}
+
+/*===========================
+ footer
+==========================*/
 footer small {
     display: flex;
     justify-content: center;
-    height: 240px;
     align-items: end;
 }
 
