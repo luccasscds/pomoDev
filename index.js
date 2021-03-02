@@ -4,12 +4,12 @@ const DOM = {
         document.querySelector('.time').innerHTML = minutos+':'+segundos;
     },
     starting(){
-        document.querySelector('.button-start').innerHTML = 'STOP';
+        document.querySelector('.button-start').innerHTML = 'PARAR';
         document.querySelector('.button-start').setAttribute('onclick','timeTowork.stopTime()');
         som.start();
     },
     stopping(){
-        document.querySelector('.button-start').innerHTML = 'START';
+        document.querySelector('.button-start').innerHTML = 'COMEÇAR';
         document.querySelector('.button-start').setAttribute('onclick','timeTowork.startTime()');
     },
     openMenu() {
