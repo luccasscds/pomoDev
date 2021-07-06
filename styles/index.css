@@ -86,7 +86,6 @@ main .container-timer {
 main .container-timer .timer {
     background-color: var(--white-black);
     width: 500px;
-    height: 300px;
     padding: 10px 0;
     border-radius: 0.5rem;
 }
