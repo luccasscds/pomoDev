@@ -75,7 +75,6 @@ header .header-menu #menu ul li a .text{
 main
 ================================================*/
 main {
-    /* text-align: center; */
     margin-top: 2.5rem;
 }
 
@@ -93,7 +92,7 @@ main .container-timer .timer {
 }
 
 /*==============================================
-botões
+Bottons
 ================================================*/
 .buttons {
     display: flex;
@@ -115,13 +114,12 @@ botões
 
 .background-start {
     display: flex;
-    height: 17%;
     justify-content: center;
 }
 
 .background-start .button-start {
     color: var(--red);
-    padding: 0 1.9rem;
+    padding: 0.5rem 1.3rem;
     border-radius: 0.25rem;
     font-weight: bold;
     font-size: 1.3rem;
