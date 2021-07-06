@@ -187,17 +187,23 @@ footer small {
     img {
         margin: 0;
     }
-}
-
-@media (max-width: 455px) {
     .buttons .button {
         font-size: 0.8rem;
     }
     .back-time .time {
         font-size: 5rem;
     }
+}
+
+@media (max-width: 455px) {
     header .header-menu .logo{
         font-size: 2rem;
+    }
+    .buttons .button {
+        font-size: 0.8rem;
+    }
+    .back-time .time {
+        font-size: 5rem;
     }
 }
 
