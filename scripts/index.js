@@ -3,10 +3,10 @@ const DOM = {
         Time.setTime(minutos,segundos);
         document.querySelector('.time').innerHTML = minutos+':'+segundos;
     },
-    starting(){
+    async starting(){
         document.querySelector('.button-start').innerHTML = 'Parar';
         document.querySelector('.button-start').setAttribute('onclick','timeTowork.stopTime()');
-        som.start();
+        await som.start();
     },
     stopping(){
         document.querySelector('.button-start').innerHTML = 'Começar';
@@ -191,14 +191,14 @@ const classButtons = {
 const som = {
     start() {
         let som = document.querySelector('.audio-1');
-        som.src = './som/som1.mp3';
+        som.src = 'sounds/start.mp3';
         som.play();
     },
     endOFtime() {
         let som = document.querySelector('.audio-2');
-        som.src = './som/som2.mp3';
+        som.src = 'sounds/stop.mp3';
         som.play();
-    },
+    }
 }
 
 const timeTowork = {
@@ -238,11 +238,7 @@ const app = {
         DOM.addValues();
         //adicionando eventos
         DOM.addEvents();
-    },
-    reload(){
-        app.init();
-        console.log('reload()');
-    },
+    }
 }
 
 app.init();
