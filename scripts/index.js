@@ -4,12 +4,12 @@ const DOM = {
         document.querySelector('.time').innerHTML = minutos+':'+segundos;
     },
     starting(){
-        document.querySelector('.button-start').innerHTML = 'PARAR';
+        document.querySelector('.button-start').innerHTML = 'Parar';
         document.querySelector('.button-start').setAttribute('onclick','timeTowork.stopTime()');
         som.start();
     },
     stopping(){
-        document.querySelector('.button-start').innerHTML = 'COMEÇAR';
+        document.querySelector('.button-start').innerHTML = 'Começar';
         document.querySelector('.button-start').setAttribute('onclick','timeTowork.startTime()');
     },
     openMenu() {
@@ -19,10 +19,10 @@ const DOM = {
         document.querySelector('.menu-setting').classList.remove('active');
     },
     deactiveX() {
-        document.querySelector('.x').removeAttribute('onclick');
+        document.querySelector('.close').removeAttribute('onclick');
     },
     activeX() {
-        document.querySelector('.x').setAttribute('onclick','DOM.closeMenu()');
+        document.querySelector('.close').setAttribute('onclick','DOM.closeMenu()');
     },
     setColorButtons(value){
         if(value == "pomodoro"){
@@ -50,7 +50,7 @@ const DOM = {
         document.querySelector('.button.short').setAttribute('onclick','classButtons.shortBreak()');
         document.querySelector('.button.long').setAttribute('onclick','classButtons.longBreak()');
         document.querySelector('.button-start').setAttribute('onclick','timeTowork.startTime()');
-        document.querySelector('.x').setAttribute('onclick','DOM.closeMenu()');
+        document.querySelector('.close').setAttribute('onclick','DOM.closeMenu()');
     },
     addValues() {
         document.querySelector('#pomodoro').value = 25;

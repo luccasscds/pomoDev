@@ -1,0 +1,218 @@
+.content {
+    display: grid;
+    grid-template-columns: 1fr;
+    grid-template-rows: repeat(3,auto);
+
+    grid-template-areas: 
+    'header'
+    'main'
+    'footer'
+}
+
+header {
+    grid-area: header;
+    padding: 0 3rem;
+}
+
+main {
+    grid-area: main;
+}
+
+footer {
+    grid-area: footer;
+}
+
+/*Header=========================================*/
+header .header-menu {
+    min-width: 24.7rem;
+
+    display: flex;
+    justify-content: space-between;
+
+    margin: 2.3rem 0;
+    padding-bottom: 1.5rem;
+    border-bottom: 0.1rem solid white;
+}
+
+header .header-menu .logo {
+    display: flex;
+    align-items: center;
+    line-height: 0;
+    font-size: 3rem;
+    font-weight: bold;
+}
+
+header .header-menu  #menu ul {
+    list-style: none;
+}
+
+header .header-menu #menu ul li {
+    display: inline-block;
+}
+
+header .header-menu #menu ul li + li{
+    padding-left: 5px;
+}
+
+header .header-menu #menu ul li a {
+    background-color: var(--white-grey);
+    color: white;
+    display: flex;
+    align-items: center;
+    padding: 8px 9px;
+    border-radius: 0.25rem;
+}
+header .header-menu #menu ul li a:hover {
+    background-color: var(--white-black);
+}
+header .header-menu #menu ul li a .text{
+    margin: 4px 5px 6px 0px;
+    line-height: 0;
+    font-size: 1.3rem;
+}
+
+/*==============================================
+main
+================================================*/
+main {
+    /* text-align: center; */
+    margin-top: 2.5rem;
+}
+
+main .container-timer {
+    display: flex;
+    justify-content: center;
+}
+
+main .container-timer .timer {
+    background-color: var(--white-black);
+    width: 500px;
+    height: 300px;
+    padding: 10px 0;
+    border-radius: 0.5rem;
+}
+
+/*==============================================
+botões
+================================================*/
+.buttons {
+    display: flex;
+    justify-content: center;
+}
+
+.buttons .button {
+    background: none;
+    padding: 5px;
+    border-radius: 0.25rem;
+    color: white;
+    font-size: 1.2rem;
+    cursor: pointer;
+}
+
+.buttons .button.active {
+    background-color: var(--black);
+}
+
+.background-start {
+    display: flex;
+    height: 17%;
+    justify-content: center;
+}
+
+.background-start .button-start {
+    color: var(--red);
+    padding: 0 1.9rem;
+    border-radius: 0.25rem;
+    font-weight: bold;
+    font-size: 1.3rem;
+    cursor: pointer;
+}
+
+/*===================
+time
+=====================*/
+.back-time {
+    display: flex;
+    height: 12rem;
+    justify-content: center;
+}
+.back-time .time {
+    margin: auto 0;
+    font-size: 7rem;
+    font-weight: bold;
+}
+
+/*===========================
+ info
+==========================*/
+.text-info{
+    margin: 300px 30px 10px 30px;
+}
+
+.text-info h1{
+    font-size: 2rem;
+    border-bottom: 2px solid white;
+}
+
+.text-info h2 {
+    font-size: 1.7rem;
+}
+
+.text-info p {
+    font-size: 1rem;
+    padding-bottom: 1rem;
+}
+.text-info p a{
+    font-weight: bold;
+    text-decoration: none;
+    color: rgba(0, 0, 0, 0.6);
+}
+
+/*===========================
+ footer
+==========================*/
+footer small {
+    display: flex;
+    justify-content: center;
+    align-items: end;
+}
+
+/*===========================
+ responsive
+==========================*/
+@media (max-width: 550px) {
+    header .header-menu #menu ul li a .text{
+        display: none;
+    }
+    main .container-timer .timer {
+        width:90vw;
+    }
+    img {
+        margin: 0;
+    }
+}
+
+@media (max-width: 455px) {
+    .buttons .button {
+        font-size: 0.8rem;
+    }
+    .back-time .time {
+        font-size: 5rem;
+    }
+    header .header-menu .logo{
+        font-size: 2rem;
+    }
+}
+
+@media (max-width: 340px) {
+    main .timer {
+        min-width: 310px;
+    }
+    .back-time .time {
+        font-size: 3rem;
+        width: auto;
+    }
+    .background-start .button-start {
+        font-size: 1rem;
+    }
+}

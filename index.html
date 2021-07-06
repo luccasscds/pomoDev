@@ -6,161 +6,175 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Pomodoro</title>
+
+    <!-- Fonts -->
     <link rel="preconnect" href="https://fonts.gstatic.com">
-    <link href="https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,500;0,700;0,900;1,700&display=swap"
-        rel="stylesheet">
-    <link rel="stylesheet" href="./style.css">
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,500;0,700;0,900;1,700&display=swap" rel="stylesheet">
+
+    <!-- CSS -->
+    <link rel="stylesheet" href="/styles/global.css">
+    <link rel="stylesheet" href="/styles/index.css">
+    <link rel="stylesheet" href="/styles/modal.css">
+
+    <!-- Scripts -->
+    <script src="/scripts/index.js" defer></script>
+
 </head>
 
 <body>
-    <header>
-        <div class="header-menu">
-            <div class="logo">PomoDev</div>
-            <nav id="menu">
-                <ul>
-                    <li>
-                        <a href="#info">
-                            <img src="/images/sobre-icon.png" alt="sobre">
-                            <div class="text">Info</div>
-                        </a>
-                    </li>
-                    <li>
-                        <a class="button-config" href="#">
-                            <img src="/images/config-icon.png" alt="configuração">
-                            <div class="text">Config</div>
-                        </a>
-                    </li>
-                </ul>
-            </nav>
-        </div>
-    </header>
-    <main>
-        <section class="container-timer">
-            <section class="timer">
-                <div class="buttons">
-                    <button class="button pomodoro">Pomodoro</button>
-                    <button class="button short">Descanso curto</button>
-                    <button class="button long">Descanso longo</button>
-                </div>
-                <div class="back-time">
-                    <div class="time"></div>
-                </div>
-                <div class="button start">
-                    <button class="button-start">COMEÇAR</button>
-                </div>
-                <div class="audios">
-                    <audio class="audio-1"></audio>
-                    <audio class="audio-2"></audio>
-                </div>
+
+    <div class="content">
+        <header>
+            <div class="header-menu">
+                <div class="logo">PomoDev</div>
+                <nav id="menu">
+                    <ul>
+                        <li>
+                            <a href="#info">
+                                <img src="/images/sobre-icon.png" alt="sobre">
+                                <div class="text">Info</div>
+                            </a>
+                        </li>
+                        <li>
+                            <a class="button-config" href="#">
+                                <img src="/images/config-icon.png" alt="configuração">
+                                <div class="text">Config</div>
+                            </a>
+                        </li>
+                    </ul>
+                </nav>
+            </div>
+        </header>
+    
+        <main>
+            <section class="container-timer">
+                <section class="timer">
+                    <div class="buttons">
+                        <button class="button pomodoro">Pomodoro</button>
+                        <button class="button short">Descanso curto</button>
+                        <button class="button long">Descanso longo</button>
+                    </div>
+                    <div class="back-time">
+                        <div class="time"></div>
+                    </div>
+                    <div class="background-start">
+                        <button class="button-start">Começar</button>
+                    </div>
+                    <div class="audios">
+                        <audio class="audio-1"></audio>
+                        <audio class="audio-2"></audio>
+                    </div>
+                </section>
             </section>
-        </section>
-
-        <section class="menu-setting">
-            <div class="background-menu">
-                <div class="main-box">
-                    <div class="x">x</div>
-
-                    <div class="title">CONFIGURAÇÃO</div>
-
-                    <div class="form-time" oninput="Form.validateDatas()">
-                        <div class="subTitle">Tempo (minutos)</div>
-                        <form action="" onsubmit="Form.submit(event)">
-                            <div class="inputs">
-                                <div class="input-group">
-                                    <label class="">Pomodoro</label>
-                                    <input type="number" id="pomodoro" name="pomodoro">
+    
+            <section class="menu-setting">
+                <div class="background-menu">
+                    <div class="main-box">
+                        <div class="close"></div>
+    
+                        <div class="title">Configuração</div>
+    
+                        <div class="form-time" oninput="Form.validateDatas()">
+                            <div class="subTitle">Tempo (minutos)</div>
+                            <form action="" onsubmit="Form.submit(event)">
+                                <div class="inputs">
+                                    <div class="input-group">
+                                        <label class="">Pomodoro</label>
+                                        <input type="number" id="pomodoro" name="pomodoro">
+                                    </div>
+    
+                                    <div class="input-group">
+                                        <label class="">Descanso curto</label>
+                                        <input type="number" id="shortBreak" name="ShortBreak">
+                                    </div>
+    
+                                    <div class="input-group">
+                                        <label class="">Descanso longo</label>
+                                        <input type="number" id="longBreak" name="ShortBreak">
+                                    </div>
                                 </div>
-
-                                <div class="input-group">
-                                    <label class="">Descanso curto</label>
-                                    <input type="number" id="shortBreak" name="ShortBreak">
-                                </div>
-
-                                <div class="input-group">
-                                    <label class="">Descanso longo</label>
-                                    <input type="number" id="longBreak" name="ShortBreak">
-                                </div>
-                            </div>
-
-                            <button class="button-save">OK</button>
-                        </form>
+    
+                                <button class="button-save">OK</button>
+                            </form>
+                        </div>
                     </div>
                 </div>
-            </div>
-        </section>
-
-        <section>
-            <a name="info">
-                <div class="text-info">
-                    <h1>O que é Pomodoro?</h1>
-                    <p>
-                        A Técnica Pomodoro é um método de gerenciamento de tempo desenvolvido por
-                        Francesco Cirillo no final dos anos 1980. A técnica consiste na utilização
-                        de um cronômetro para dividir o trabalho em períodos de 25 minutos, separados
-                        por breves intervalos.
-                    </p>
+            </section>
     
-                    <h1>Como o método Pomodoro funciona na prática?</h1>
-    
-                    <p>Agora que você já sabe o que é o método Pomodoro, veja como você pode aplicá-lo no seu dia a dia. É
-                        mais
-                        simples do que você imagina. Além disso, ele também é um ótimo método de desenvolvimento pessoal, te
-                        ajudando até mesmo a ficar mais inteligente.</p>
-    
-                    <h2>1 – Planejamento</h2>
-    
-                    <p>Antes de dar início aos trabalhos, faça uma lista com todas as tarefas que você precisa executar
-                        naquele
-                        dia, colocando-as em ordem de importância. Seja racional na hora de listar suas tarefas;
-                        expectativas
-                        realistas são a chave para ser produtivo.</p>
-    
-                    <h2>2 – Foco</h2>
-    
-                    <p>Qualquer distração, por menor que seja, pode prejudicar sua produtividade. Por isso, saia do seu
-                        e-mail
-                        e das redes sociais e coloque o seu telefone no silencioso. Peça para que os seus colegas não te
-                        perturbem enquanto você estiver trabalhando.</p>
-    
-                    <h2>3 – Trabalho</h2>
-    
-                    <p>Escolha sua primeira tarefa, ajuste o seu cronômetro para 25 minutos, aperte o play e foco total.
-                        Assim,
-                        é recomendado que você não pause o medidor de tempo antes que os 25 minutos terminem.</p>
-    
-                    <h2>4 – Pausa curta</h2>
-    
-                    <p>Quando o seu cronômetro apitar avisando que os 25 minutos programados já terminaram, você deverá
-                        parar
-                        tudo o que está fazendo e se afastar da sua mesa por 5 minutos.
-    
-                        Portanto, utilize esse tempo para esticar as pernas, respirar fundo, fazer um pequeno lanche, ir ao
-                        banheiro, tomar água ou um café.</p>
-    
-                    <h2>5 – De volta aos trabalhos</h2>
-    
-                    <p>Após essa primeira pausa, você retornará às suas tarefas e repetirá esse ciclo por mais três sessões
-                        de
-                        25 minutos, concentrando toda a sua energia e foco.</p>
-    
-                    <h2>6 – Pausa longa</h2>
-    
-                    <p>Ao término das quatro sessões de 25 minutos, você poderá fazer uma pausa maior, de 15 a 20 minutos.
-                        Aproveite esse tempo ao máximo para limpar a sua mente e relaxar.
-    
-                        Feito isso, o ciclo inicia-se novamente até o final do seu expediente ou até você concluir todas as
-                        tarefas que você listou inicialmente.</p><br>
-                    
-                    <p>O <a href="https://pomofocus.io/">Pomofocus</a> é o site que eu me baseei.</p>
-                </div>
-            </a>
-        </section>
+            <section>
+                <a name="info">
+                    <div class="text-info">
+                        <h1>O que é Pomodoro?</h1>
+                        <p>
+                            A Técnica Pomodoro é um método de gerenciamento de tempo desenvolvido por
+                            Francesco Cirillo no final dos anos 1980. A técnica consiste na utilização
+                            de um cronômetro para dividir o trabalho em períodos de 25 minutos, separados
+                            por breves intervalos.
+                        </p>
         
-    </main>
-    <footer>
-        <small>projeto feito por Lucas Silva</small>
-    </footer>
-    <script src="/index.js"></script>
+                        <h1>Como o método Pomodoro funciona na prática?</h1>
+        
+                        <p>Agora que você já sabe o que é o método Pomodoro, veja como você pode aplicá-lo no seu dia a dia. É
+                            mais
+                            simples do que você imagina. Além disso, ele também é um ótimo método de desenvolvimento pessoal, te
+                            ajudando até mesmo a ficar mais inteligente.</p>
+        
+                        <h2>1 – Planejamento</h2>
+        
+                        <p>Antes de dar início aos trabalhos, faça uma lista com todas as tarefas que você precisa executar
+                            naquele
+                            dia, colocando-as em ordem de importância. Seja racional na hora de listar suas tarefas;
+                            expectativas
+                            realistas são a chave para ser produtivo.</p>
+        
+                        <h2>2 – Foco</h2>
+        
+                        <p>Qualquer distração, por menor que seja, pode prejudicar sua produtividade. Por isso, saia do seu
+                            e-mail
+                            e das redes sociais e coloque o seu telefone no silencioso. Peça para que os seus colegas não te
+                            perturbem enquanto você estiver trabalhando.</p>
+        
+                        <h2>3 – Trabalho</h2>
+        
+                        <p>Escolha sua primeira tarefa, ajuste o seu cronômetro para 25 minutos, aperte o play e foco total.
+                            Assim,
+                            é recomendado que você não pause o medidor de tempo antes que os 25 minutos terminem.</p>
+        
+                        <h2>4 – Pausa curta</h2>
+        
+                        <p>Quando o seu cronômetro apitar avisando que os 25 minutos programados já terminaram, você deverá
+                            parar
+                            tudo o que está fazendo e se afastar da sua mesa por 5 minutos.
+        
+                            Portanto, utilize esse tempo para esticar as pernas, respirar fundo, fazer um pequeno lanche, ir ao
+                            banheiro, tomar água ou um café.</p>
+        
+                        <h2>5 – De volta aos trabalhos</h2>
+        
+                        <p>Após essa primeira pausa, você retornará às suas tarefas e repetirá esse ciclo por mais três sessões
+                            de
+                            25 minutos, concentrando toda a sua energia e foco.</p>
+        
+                        <h2>6 – Pausa longa</h2>
+        
+                        <p>Ao término das quatro sessões de 25 minutos, você poderá fazer uma pausa maior, de 15 a 20 minutos.
+                            Aproveite esse tempo ao máximo para limpar a sua mente e relaxar.
+        
+                            Feito isso, o ciclo inicia-se novamente até o final do seu expediente ou até você concluir todas as
+                            tarefas que você listou inicialmente.</p><br>
+                        
+                        <p>O <a href="https://pomofocus.io/">Pomofocus</a> é o site que eu me baseei.</p>
+                    </div>
+                </a>
+            </section>
+            
+        </main>
+    
+        <footer>
+            <small>projeto feito por Lucas Silva</small>
+        </footer>
+    </div>
+
 </body>
 
 </html>
