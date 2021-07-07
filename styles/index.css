@@ -24,8 +24,6 @@ footer {
 
 /*Header=========================================*/
 header .header-menu {
-    min-width: 24.7rem;
-
     display: flex;
     justify-content: space-between;
 
