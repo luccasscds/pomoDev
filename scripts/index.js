@@ -1,3 +1,5 @@
+// total de linhas são de 244
+
 const DOM = {
     setTime(minutos,segundos) {
         Time.setTime(minutos,segundos);
@@ -12,17 +14,11 @@ const DOM = {
         document.querySelector('.button-start').innerHTML = 'Começar';
         document.querySelector('.button-start').setAttribute('onclick','timeTowork.startTime()');
     },
-    openMenu() {
-        document.querySelector('.menu-setting').classList.add('active');
-    },
-    closeMenu() {
-        document.querySelector('.menu-setting').classList.remove('active');
-    },
     deactiveX() {
         document.querySelector('.close').removeAttribute('onclick');
     },
     activeX() {
-        document.querySelector('.close').setAttribute('onclick','DOM.closeMenu()');
+        document.querySelector('.close').setAttribute('onclick','modal.close()');
     },
     setColorButtons(value){
         if(value == "pomodoro"){
@@ -45,12 +41,10 @@ const DOM = {
     },
     addEvents() {
         document.querySelector('body').setAttribute('onload','classButtons.pomodoro()');
-        document.querySelector('.button-config').setAttribute('onclick','DOM.openMenu()');
         document.querySelector('.button.pomodoro').setAttribute('onclick','classButtons.pomodoro()');
         document.querySelector('.button.short').setAttribute('onclick','classButtons.shortBreak()');
         document.querySelector('.button.long').setAttribute('onclick','classButtons.longBreak()');
         document.querySelector('.button-start').setAttribute('onclick','timeTowork.startTime()');
-        document.querySelector('.close').setAttribute('onclick','DOM.closeMenu()');
     },
     addValues() {
         document.querySelector('#pomodoro').value = 25;
@@ -138,7 +132,7 @@ const Form = {
         event.preventDefault();
         try {
             Form.validateDatas();
-            DOM.closeMenu();
+            modal.close();
             classButtons.pomodoro();//nao sei se ta certo
         } catch(error){
             alert(error);

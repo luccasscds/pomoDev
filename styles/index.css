@@ -202,9 +202,6 @@ footer small {
     .buttons .button {
         font-size: 0.8rem;
     }
-    .back-time .time {
-        font-size: 5rem;
-    }
 }
 
 @media (max-width: 340px) {
