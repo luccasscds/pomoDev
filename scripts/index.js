@@ -3,22 +3,17 @@
 const DOM = {
     setTime(minutos,segundos) {
         Time.setTime(minutos,segundos);
-        document.querySelector('.time').innerHTML = minutos+':'+segundos;
+        document.querySelector('.time').innerHTML = `${minutos}:${segundos}`;
+        document.querySelector('head title').innerHTML = `Pomodoro ${minutos}:${segundos}`;
     },
-    async starting(){
+    starting(){
         document.querySelector('.button-start').innerHTML = 'Parar';
-        document.querySelector('.button-start').setAttribute('onclick','timeTowork.stopTime()');
-        await som.start();
+        document.querySelector('.button-start').setAttribute('onclick','Timer.stop()');
+        som.start();
     },
     stopping(){
         document.querySelector('.button-start').innerHTML = 'Começar';
-        document.querySelector('.button-start').setAttribute('onclick','timeTowork.startTime()');
-    },
-    deactiveX() {
-        document.querySelector('.close').removeAttribute('onclick');
-    },
-    activeX() {
-        document.querySelector('.close').setAttribute('onclick','modal.close()');
+        document.querySelector('.button-start').setAttribute('onclick','Timer.start()');
     },
     setColorButtons(value){
         if(value == "pomodoro"){
@@ -44,21 +39,12 @@ const DOM = {
         document.querySelector('.button.pomodoro').setAttribute('onclick','classButtons.pomodoro()');
         document.querySelector('.button.short').setAttribute('onclick','classButtons.shortBreak()');
         document.querySelector('.button.long').setAttribute('onclick','classButtons.longBreak()');
-        document.querySelector('.button-start').setAttribute('onclick','timeTowork.startTime()');
+        document.querySelector('.button-start').setAttribute('onclick','Timer.start()');
     },
     addValues() {
         document.querySelector('#pomodoro').value = 25;
         document.querySelector('#shortBreak').value = 5;
         document.querySelector('#longBreak').value = 15;
-    },
-}
-
-const Time = {
-    minutos: 0,
-    segundos: 0,
-    setTime(minutos,segundos) {
-        this.minutos = minutos;
-        this.segundos = segundos;
     },
 }
 
@@ -85,67 +71,13 @@ const tools = {
     },
 }
 
-const Form = {
-    pomodoro: document.querySelector('input#pomodoro'),
-    short: document.querySelector('input#shortBreak'),
-    long: document.querySelector('input#longBreak'),
-
-    getValues(){
-        return {
-            pomodoro: Form.pomodoro.value,
-            short: Form.short.value,
-            long: Form.long.value,
-        }
-    },
-    validateDatas() {
-        let {pomodoro,short,long} = this.getValues();
-        if(pomodoro == '' ||
-            short == '' ||
-            long == ''){
-                DOM.deactiveX();
-                throw new Error('Campo vazio!por favor, preencha todos os campos.');
-        }else {
-            DOM.activeX();
-        }
-        if(pomodoro <= 0 ||
-            short <= 0 ||
-            long <= 0){
-                DOM.deactiveX();
-                throw new Error('Dados incorretos!por favor, preencha os campos.');
-        }else {
-            DOM.activeX();
-        }
-        
-    },
-    formatDatas() {
-        let {pomodoro,short,long} = Form.getValues();
-        pomodoro = tools.formatpomodoro(pomodoro);
-        short = tools.formatpomodoro(short);
-        long = tools.formatpomodoro(long);
-        return {
-            pomodoro,
-            short,
-            long,
-        }
-    },
-    submit(event) {
-        event.preventDefault();
-        try {
-            Form.validateDatas();
-            modal.close();
-            classButtons.pomodoro();//nao sei se ta certo
-        } catch(error){
-            alert(error);
-        }
-    },
-}
-
 const classButtons = {
-    Background: document.querySelector('body').style,
+    body: document.querySelector('body').style,
     letISgo: undefined,
     pomodoro(){
-        timeTowork.stopTime();
-        this.Background.background = 'rgb(219, 82, 77)';
+        Timer.stop();
+
+        this.body.background = 'rgb(219, 82, 77)';
         DOM.setColorButtons('pomodoro');
         let minutos = Form.formatDatas().pomodoro;
         let segundos = tools.formatNumber(0);
@@ -153,18 +85,19 @@ const classButtons = {
         classButtons.letISgo = 'work';
     },
     shortBreak(){
-        timeTowork.stopTime();
+        Timer.stop();
         
         let minutos = Form.formatDatas().short;
         let segundos = tools.formatNumber(0);
         DOM.setColorButtons('short');
         DOM.setTime(minutos,segundos);
-        this.Background.background = 'rgb(70, 142, 145)';
+        this.body.background = 'rgb(70, 142, 145)';
         classButtons.letISgo = 'break';
     },
     longBreak(){
-        timeTowork.stopTime();
-        this.Background.background = 'rgb(67, 126, 168)';
+        Timer.stop();
+
+        this.body.background = 'rgb(67, 126, 168)';
         let minutos = Form.formatDatas().long;
         let segundos = tools.formatNumber(0);
         DOM.setColorButtons('long');
@@ -183,48 +116,16 @@ const classButtons = {
 }
 
 const som = {
-    start() {
+    async start() {
         let som = document.querySelector('.audio-1');
         som.src = 'sounds/start.mp3';
-        som.play();
+        await som.play();
     },
-    endOFtime() {
+    async endOFtime() {
         let som = document.querySelector('.audio-2');
         som.src = 'sounds/stop.mp3';
-        som.play();
+        await som.play();
     }
-}
-
-const timeTowork = {
-    timeInterval: undefined,
-
-    startTime(){
-        DOM.starting();
-
-        let {minutos, segundos} = Time;
-
-        timeTowork.timeInterval = setInterval(()=>{
-            if(segundos < 60 && segundos > -1) {
-                segundos --;
-            }
-            if(segundos == -1){
-                segundos = 59;
-                if(minutos > 0){
-                    minutos --;
-                }
-            }
-            
-            DOM.setTime(tools.formatNumber(minutos),tools.formatNumber(segundos));
-            if(minutos == 0 && segundos == 0){
-                classButtons.workORbreak();
-                som.endOFtime();
-            }
-        },1000);
-    },
-    stopTime() {
-        DOM.stopping();
-        clearInterval(timeTowork.timeInterval);
-    },
 }
 
 const app = {
