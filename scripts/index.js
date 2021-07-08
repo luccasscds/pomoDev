@@ -1,10 +1,9 @@
-// total de linhas são de 244
-
 const DOM = {
     setTime(minutos,segundos) {
         Time.setTime(minutos,segundos);
-        document.querySelector('.time').innerHTML = `${minutos}:${segundos}`;
-        document.querySelector('head title').innerHTML = `Pomodoro ${minutos}:${segundos}`;
+        let time = `${minutos}:${segundos}`
+        document.querySelector('.time').innerHTML = time;
+        document.querySelector('head title').innerHTML = `Pomodoro ${time}`;
     },
     starting(){
         document.querySelector('.button-start').innerHTML = 'Parar';
@@ -133,6 +132,9 @@ const app = {
         DOM.addValues();
         //adicionando eventos
         DOM.addEvents();
+
+        // pedir permisão por usuario para as notificações
+        Notification.requestPermission()
     }
 }
 

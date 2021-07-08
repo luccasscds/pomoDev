@@ -30,6 +30,8 @@ const Timer = {
             if(minutos == 0 && segundos == 0){
                 classButtons.workORbreak();
                 som.endOFtime();
+                // mandar notificaçao avisando que acabou o tempo
+                new Notification('Hora de descansar!')
             }
         },1000);
     },
