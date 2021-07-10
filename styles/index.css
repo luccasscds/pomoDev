@@ -136,7 +136,7 @@ time
 }
 .back-time .time {
     margin: auto 0;
-    font-size: clamp(55px, 5rem, 4vw);
+    font-size: clamp(55px, 6vw, 7rem);
     font-weight: bold;
 }
 
