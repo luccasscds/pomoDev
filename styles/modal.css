@@ -19,15 +19,13 @@
 
 .menu-setting .background-menu {
     display: flex;
-    width: 24rem;
-    min-width: 290px;
+    width: clamp(290px, 90vw, 1920px);
     background: white;
     border-radius: 0.5rem;
     position: relative;
 }
 
 .menu-setting .background-menu .main-box {
-    display: block;
     width: 100%;
     color: var(--blue);
     font-size: 1rem;
@@ -89,7 +87,7 @@
 
 input {
     background-color: var(--black);
-    width: 70px;
+    width: clamp(70px,23vw,37rem);
     padding: 5px 10px 5px 5px;
     border-radius: 0.25rem;
     outline: none;

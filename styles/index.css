@@ -13,7 +13,7 @@
 
 header {
     grid-area: header;
-    padding: 0 3rem;
+    padding: 0 clamp(1%, 5%, 10%);
 }
 
 main {
@@ -38,7 +38,8 @@ header .header-menu .logo {
     display: flex;
     align-items: center;
     line-height: 0;
-    font-size: 3rem;
+    /* font-size: 3rem; */
+    font-size: clamp(10px, 2rem ,3rem);
     font-weight: bold;
 }
 
@@ -85,7 +86,7 @@ main .container-timer {
 
 main .container-timer .timer {
     background-color: var(--white-black);
-    width: 500px;
+    width: clamp(270px,90vw, 32rem);
     padding: 10px 0;
     border-radius: 0.5rem;
 }
@@ -103,7 +104,7 @@ Bottons
     padding: 5px;
     border-radius: 0.25rem;
     color: white;
-    font-size: 1.2rem;
+    font-size: clamp(12px, 2vw ,1.4rem);
     cursor: pointer;
 }
 
@@ -121,7 +122,7 @@ Bottons
     padding: 0.5rem 1.3rem;
     border-radius: 0.25rem;
     font-weight: bold;
-    font-size: 1.3rem;
+    font-size: clamp(15px, 2vw, 1.3rem);
     cursor: pointer;
 }
 
@@ -135,7 +136,7 @@ time
 }
 .back-time .time {
     margin: auto 0;
-    font-size: 7rem;
+    font-size: clamp(55px, 5rem, 4vw);
     font-weight: bold;
 }
 
@@ -181,38 +182,7 @@ footer small {
     header .header-menu #menu ul li a .text{
         display: none;
     }
-    main .container-timer .timer {
-        width:90vw;
-    }
     img {
         margin: 0;
-    }
-    .buttons .button {
-        font-size: 1.2rem;
-    }
-    .back-time .time {
-        font-size: 5rem;
-    }
-}
-
-@media (max-width: 455px) {
-    header .header-menu .logo{
-        font-size: 2rem;
-    }
-    .buttons .button {
-        font-size: 0.8rem;
-    }
-}
-
-@media (max-width: 340px) {
-    main .timer {
-        min-width: 310px;
-    }
-    .back-time .time {
-        font-size: 3rem;
-        width: auto;
-    }
-    .background-start .button-start {
-        font-size: 1rem;
     }
 }
