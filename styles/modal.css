@@ -32,19 +32,30 @@
     margin: 0 .5rem;
 }
 
-.menu-setting .background-menu .main-box .close{
+.menu-setting .background-menu .main-box .close{    
+    width: 40px;
+    height: 40px;
+
+    position: absolute;
+    top: 0;
+    right: 0;
+}
+
+.menu-setting .background-menu .main-box .close::before {
+    content: "";
     background-color: #003049;
-    
+
     width: 20px;
     height: 20px;
 
     position: absolute;
-    top: 12px;
-    right: 10px;
+    top: 25%;
+    right: 25%;
 
     clip-path: polygon(20% 0%, 0% 20%, 30% 50%, 0% 80%, 20% 100%, 50% 70%, 80% 100%, 100% 80%, 70% 50%, 100% 20%, 80% 0%, 50% 30%);
-
+    
     cursor: pointer;
+    
     opacity: 0.5;
 }
 
