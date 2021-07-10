@@ -20,7 +20,6 @@
 .menu-setting .background-menu {
     display: flex;
     width: clamp(290px, 90vw, 1920px);
-    height: clamp(358px, 55vw, 1556px);
     background: white;
     border-radius: 0.5rem;
     position: relative;
